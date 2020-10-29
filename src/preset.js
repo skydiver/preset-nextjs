@@ -1,7 +1,10 @@
 const { Preset } = require('use-preset');
 
 module.exports = Preset.make('preset-nextjs')
-  .copyTemplates()
+
+  /**
+   * Install React + Next.js
+  */
   .editJson('package.json')
     .title('Install React + Next.js')
     .merge({
@@ -22,6 +25,10 @@ module.exports = Preset.make('preset-nextjs')
       'scripts.test'
     ])
     .chain()
+
+  /**
+   * Add ESLint + Prettier dependencies
+   */
   .editJson('package.json')
     .title('Install ESLint + Prettier')
     .merge({
@@ -36,11 +43,67 @@ module.exports = Preset.make('preset-nextjs')
       }
     })
     .chain()
+
+  /**
+   * Prompt for Tailwind CSS + Tailwind UI
+   */
+  .prompts()
+    .confirm('Install Tailwind CSS + Tailwind UI?', 'tailwind')
+    .chain()
+
+  /**
+   * Add Tailwind CSS + Tailwind UI dependencies
+   */
+  .editJson('package.json')
+    .if(({ prompts }) => Boolean(prompts.tailwind))
+    .title('Install Tailwind CSS + Tailwind UI')
+    .merge({
+      dependencies: {
+        "@fullhuman/postcss-purgecss": "^3.0.0",
+        "@tailwindcss/ui": "^0.6.2",
+        "tailwindcss": "^1.9.6"
+      }
+    })
+    .chain()
+
+  /**
+   * Copy project config files
+   */
+  .copyDirectory('project')
+    .title('Copy project config files')
+    .to('/')
+    .chain()
+
+  /**
+   * Create Next.js homepage
+   */
+  .copyDirectory('nextjs')
+    .if(({ prompts }) => !Boolean(prompts.tailwind))
+    .title('Create index page')
+    .to('/')
+    .chain()
+
+  /**
+   * Copy Tailwind CSS + Tailwind UI config
+   */
+  .copyDirectory('tailwind')
+    .if(({ prompts }) => Boolean(prompts.tailwind))
+    .title('Copy Tailwind CSS + Tailwind UI config')
+    .to('/')
+    .chain()
+
+  /**
+   * Install npm dependencies
+   */
   .command()
     .title('Install npm dependencies')
     .run('npm', ['install', '-s'])
     .chain()
+
+  /**
+   * Sort package.json
+   */
   .command()
     .title('Cleanup package.json')
     .run('npx', ['sort-package-json'])
-    .chain()
+    .chain();
