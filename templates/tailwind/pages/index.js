@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
 const Home = () => (
   <>
@@ -9,6 +9,6 @@ const Home = () => (
       <div>Next.js + Tailwind CSS + Tailwind UI</div>
     </div>
   </>
-)
+);
 
-export default Home
+export default Home;
