@@ -1,0 +1,14 @@
+{
+  "name": "nextjs-preset",
+  "version": "0.0.0",
+  "private": "true",
+  "license": "MIT",
+  "scripts": {
+    "release": "standard-version --skip.changelog"
+  },
+  "devDependencies": {
+    "standard-version": "^8.0.2",
+    "use-preset": "^0"
+  },
+  "preset": "src/preset.js"
+}

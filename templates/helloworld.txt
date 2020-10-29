@@ -1,0 +1,1 @@
+Hello from nextjs-preset. You can delete this file.
