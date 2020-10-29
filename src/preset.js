@@ -1,6 +1,6 @@
 const { Preset } = require('use-preset');
 
-module.exports = Preset.make('nextjs-preset')
+module.exports = Preset.make('preset-nextjs')
   .copyTemplates()
   .editJson('package.json')
     .title('Install React + Next.js')
