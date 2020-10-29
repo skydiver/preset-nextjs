@@ -1,19 +1,10 @@
-<p align="center">
-  <h1 align="center">nextjs-preset</h1>
-  <p align="center">
-    <a href="https://github.com/use-preset/use-preset/releases">
-      <img alt="npx use-preset skydiver/nextjs-preset" src="https://img.shields.io/badge/use--preset-nextjs-preset-blue?style=flat-square">
-    </a>
-    &nbsp;
-    <a href="https://www.npmjs.com/package/use-preset">
-      <img alt="use-preset version" src="https://img.shields.io/npm/v/use-preset?color=32c854&style=flat-square&label=use-preset">
-    </a>
-  </p>
-  <br />
-  <p align="center">
-    <b>Preset</b> is a scaffolding tool for developers. <a href="https://usepreset.dev/">Read the documentation</a> for more information.
-  </p>
-  <br />
-  <pre align="center">npx use-preset skydiver/nextjs-preset</pre>
-  &nbsp;
-<p>
+# preset-nextjs
+> Next.js + ESLint + Prettier
+
+## Install
+1. `npm init`
+2. `npx use-preset skydiver/preset-nextjs`
+3. `npm run dev`
+
+## Credits
+Based on [ESlint and Prettier for React apps (Bonus - Next.js and TypeScript)](https://dev.to/onygami/eslint-and-prettier-for-react-apps-bonus-next-js-and-typescript-3e46) article by [Arpit Bharti](https://github.com/onygami)
