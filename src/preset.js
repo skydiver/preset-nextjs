@@ -45,14 +45,14 @@ module.exports = Preset.make('preset-nextjs')
     .chain()
 
   /**
-   * Prompt for Tailwind CSS + Tailwind UI
+   * Prompt for Tailwind CSS
    */
   .prompts()
-    .confirm('Install Tailwind CSS + Tailwind UI?', 'tailwind')
+    .confirm('Install Tailwind CSS?', 'tailwind')
     .chain()
 
   /**
-   * Add Tailwind CSS + Tailwind UI dependencies
+   * Add Tailwind CSS dependencies
    */
   .editJson('package.json')
     .if(({ prompts }) => Boolean(prompts.tailwind))
@@ -84,11 +84,11 @@ module.exports = Preset.make('preset-nextjs')
     .chain()
 
   /**
-   * Copy Tailwind CSS + Tailwind UI config
+   * Copy Tailwind CSS config
    */
   .copyDirectory('tailwind')
     .if(({ prompts }) => Boolean(prompts.tailwind))
-    .title('Copy Tailwind CSS + Tailwind UI config')
+    .title('Copy Tailwind CSS config')
     .to('/')
     .chain()
 
