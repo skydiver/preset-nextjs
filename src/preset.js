@@ -56,12 +56,12 @@ module.exports = Preset.make('preset-nextjs')
    */
   .editJson('package.json')
     .if(({ prompts }) => Boolean(prompts.tailwind))
-    .title('Install Tailwind CSS + Tailwind UI')
+    .title('Install Tailwind CSS')
     .merge({
       dependencies: {
-        "@fullhuman/postcss-purgecss": "^3.0.0",
-        "@tailwindcss/ui": "^0.6.2",
-        "tailwindcss": "^1.9.6"
+        "autoprefixer": "^10.0.2",
+        "postcss": "^8.1.9",
+        "tailwindcss": "^2.0.1"
       }
     })
     .chain()
