@@ -1,14 +1,14 @@
 {
   "name": "preset-nextjs",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Next.js + ESLint + Prettier",
   "license": "MIT",
-  "preset": "src/preset.js",
+  "author": "Martín M.",
   "scripts": {
     "release": "standard-version --skip.changelog"
   },
   "devDependencies": {
-    "standard-version": "^8.0.2",
-    "use-preset": "^0"
-  }
+    "apply": "^0.2"
+  },
+  "preset": "preset.js"
 }
