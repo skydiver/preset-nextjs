@@ -1,9 +1,9 @@
 # preset-nextjs
-> Next.js + ESLint + Prettier
+> Next.js + ESLint + Prettier (Optional: Tailwind CSS)
 
 ## Install
 1. `npm init`
-2. `npx use-preset skydiver/preset-nextjs`
+2. `npx apply skydiver/preset-nextjs`
 3. `npm run dev`
 
 ## Credits
