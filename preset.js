@@ -1,4 +1,4 @@
-import { color, Preset } from 'apply';
+import { Preset } from 'apply';
 
 Preset.setName('Next.js + ESLint + Prettier');
 
@@ -61,39 +61,33 @@ Preset.setName('Next.js + ESLint + Prettier');
       }
     });
 
-  // /**
-  //  * Copy project config files
-  //  */
-  // .copyDirectory('project')
-  //   .title('Copy project config files')
-  //   .to('/')
-  //   .chain()
+  /**
+   * Copy project config files
+   */
+  Preset.extract('config')
+    .withTitle('Copy project config files')
+    .withDots();
 
-  // /**
-  //  * Create Next.js homepage
-  //  */
-  // .copyDirectory('nextjs')
-  //   .if(({ prompts }) => !Boolean(prompts.tailwind))
-  //   .title('Create index page')
-  //   .to('/')
-  //   .chain()
+  /**
+   * Create Next.js homepage
+   */
+  Preset.extract('nextjs')
+    .ifNotPrompt('tailwind')
+    .withTitle('Create index page')
+    .withDots();
 
-  // /**
-  //  * Copy Tailwind CSS config
-  //  */
-  // .copyDirectory('tailwind')
-  //   .if(({ prompts }) => Boolean(prompts.tailwind))
-  //   .title('Copy Tailwind CSS config')
-  //   .to('/')
-  //   .chain()
+  /**
+   * Copy Tailwind CSS config
+   */
+  Preset.extract('tailwind')
+    .ifPrompt('tailwind')
+    .withTitle('Copy Tailwind CSS config')
+    .withDots();
 
-  // /**
-  //  * Install npm dependencies
-  //  */
-  // .command()
-  //   .title('Install npm dependencies')
-  //   .run('npm', ['install', '-s'])
-  //   .chain()
+  /**
+   * Install npm dependencies
+   */
+  Preset.installDependencies('node');
 
   /**
    * Sort package.json
