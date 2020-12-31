@@ -1,12 +1,12 @@
-const { Preset } = require('use-preset');
+import { color, Preset } from 'apply';
 
-module.exports = Preset.make('preset-nextjs')
+Preset.setName('Next.js + ESLint + Prettier');
 
   /**
    * Install React + Next.js
   */
-  .editJson('package.json')
-    .title('Install React + Next.js')
+  Preset.editJson('package.json')
+    .withTitle('Install React + Next.js')
     .merge({
       scripts: {
         "dev": "next dev",
@@ -23,14 +23,13 @@ module.exports = Preset.make('preset-nextjs')
     })
     .delete([
       'scripts.test'
-    ])
-    .chain()
+    ]);
 
   /**
    * Add ESLint + Prettier dependencies
    */
-  .editJson('package.json')
-    .title('Install ESLint + Prettier')
+  Preset.editJson('package.json')
+    .withTitle('Install ESLint + Prettier')
     .merge({
       devDependencies: {
         "eslint": "^7.12.1",
@@ -41,69 +40,63 @@ module.exports = Preset.make('preset-nextjs')
         "eslint-plugin-react-hooks": "^4.2.0",
         "prettier": "^2.1.2"
       }
-    })
-    .chain()
+    });
 
   /**
    * Prompt for Tailwind CSS
    */
-  .prompts()
-    .confirm('Install Tailwind CSS?', 'tailwind')
-    .chain()
+  Preset.confirm('tailwind', 'Install Tailwind CSS?');
 
   /**
    * Add Tailwind CSS dependencies
    */
-  .editJson('package.json')
-    .if(({ prompts }) => Boolean(prompts.tailwind))
-    .title('Install Tailwind CSS')
+  Preset.editJson('package.json')
+    .ifPrompt('tailwind')
+    .withTitle('Install Tailwind CSS')
     .merge({
       dependencies: {
         "autoprefixer": "^10.0.2",
         "postcss": "^8.1.9",
         "tailwindcss": "^2.0.1"
       }
-    })
-    .chain()
+    });
 
-  /**
-   * Copy project config files
-   */
-  .copyDirectory('project')
-    .title('Copy project config files')
-    .to('/')
-    .chain()
+  // /**
+  //  * Copy project config files
+  //  */
+  // .copyDirectory('project')
+  //   .title('Copy project config files')
+  //   .to('/')
+  //   .chain()
 
-  /**
-   * Create Next.js homepage
-   */
-  .copyDirectory('nextjs')
-    .if(({ prompts }) => !Boolean(prompts.tailwind))
-    .title('Create index page')
-    .to('/')
-    .chain()
+  // /**
+  //  * Create Next.js homepage
+  //  */
+  // .copyDirectory('nextjs')
+  //   .if(({ prompts }) => !Boolean(prompts.tailwind))
+  //   .title('Create index page')
+  //   .to('/')
+  //   .chain()
 
-  /**
-   * Copy Tailwind CSS config
-   */
-  .copyDirectory('tailwind')
-    .if(({ prompts }) => Boolean(prompts.tailwind))
-    .title('Copy Tailwind CSS config')
-    .to('/')
-    .chain()
+  // /**
+  //  * Copy Tailwind CSS config
+  //  */
+  // .copyDirectory('tailwind')
+  //   .if(({ prompts }) => Boolean(prompts.tailwind))
+  //   .title('Copy Tailwind CSS config')
+  //   .to('/')
+  //   .chain()
 
-  /**
-   * Install npm dependencies
-   */
-  .command()
-    .title('Install npm dependencies')
-    .run('npm', ['install', '-s'])
-    .chain()
+  // /**
+  //  * Install npm dependencies
+  //  */
+  // .command()
+  //   .title('Install npm dependencies')
+  //   .run('npm', ['install', '-s'])
+  //   .chain()
 
   /**
    * Sort package.json
    */
-  .command()
-    .title('Cleanup package.json')
-    .run('npx', ['sort-package-json'])
-    .chain();
+  Preset.execute('npx', 'sort-package-json')
+    .withTitle('Cleanup package.json');
