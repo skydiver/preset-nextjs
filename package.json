@@ -1,6 +1,6 @@
 {
   "name": "preset-nextjs",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Next.js + ESLint + Prettier",
   "license": "MIT",
   "author": "Martín M.",
