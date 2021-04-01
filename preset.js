@@ -54,10 +54,11 @@ Preset.setName('Next.js + ESLint + Prettier');
     .ifPrompt('tailwind')
     .withTitle('Install Tailwind CSS')
     .merge({
-      dependencies: {
-        "autoprefixer": "^10.0.2",
-        "postcss": "^8.1.9",
-        "tailwindcss": "^2.0.1"
+      devDependencies: {
+        "@tailwindcss/jit": "^0.1.18",
+        "autoprefixer": "^10.2.5",
+        "postcss": "^8.2.9",
+        "tailwindcss": "^2.0.4"
       }
     });
 
