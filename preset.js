@@ -16,7 +16,7 @@ Preset.setName('Next.js + ESLint + Prettier');
         "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
       },
       dependencies: {
-        "next": "^10.0.0",
+        "next": "^10.1.0",
         "react": "^17.0.1",
         "react-dom": "^17.0.1"
       }
@@ -55,10 +55,9 @@ Preset.setName('Next.js + ESLint + Prettier');
     .withTitle('Install Tailwind CSS')
     .merge({
       devDependencies: {
-        "@tailwindcss/jit": "^0.1.18",
         "autoprefixer": "^10.2.5",
         "postcss": "^8.2.9",
-        "tailwindcss": "^2.0.4"
+        "tailwindcss": "^2.1.0"
       }
     });
 
