@@ -16,9 +16,9 @@ Preset.setName('Next.js + ESLint + Prettier');
         "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
       },
       dependencies: {
-        "next": "^10.1.0",
-        "react": "^17.0.1",
-        "react-dom": "^17.0.1"
+        "next": "^11.0.0",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
       }
     })
     .delete([
@@ -32,13 +32,13 @@ Preset.setName('Next.js + ESLint + Prettier');
     .withTitle('Install ESLint + Prettier')
     .merge({
       devDependencies: {
-        "eslint": "^7.12.1",
+        "eslint": "^7.28.0",
         "eslint-config-prettier": "^6.15.0",
         "eslint-plugin-jsx-a11y": "^6.4.1",
-        "eslint-plugin-prettier": "^3.1.4",
-        "eslint-plugin-react": "^7.21.5",
+        "eslint-plugin-prettier": "^3.4.0",
+        "eslint-plugin-react": "^7.24.0",
         "eslint-plugin-react-hooks": "^4.2.0",
-        "prettier": "^2.1.2"
+        "prettier": "^2.3.1"
       }
     });
 
@@ -55,9 +55,9 @@ Preset.setName('Next.js + ESLint + Prettier');
     .withTitle('Install Tailwind CSS')
     .merge({
       devDependencies: {
-        "autoprefixer": "^10.2.5",
-        "postcss": "^8.2.9",
-        "tailwindcss": "^2.1.0"
+        "autoprefixer": "^10.2.6",
+        "postcss": "^8.3.4",
+        "tailwindcss": "^2.1.4"
       }
     });
 
